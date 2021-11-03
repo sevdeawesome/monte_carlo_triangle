@@ -13,8 +13,8 @@ What is the probability that the point in the center of the large triangle is wi
  
  
  ## Answer
- I got roughly 41%, although my intuition suggests that this is probably wrong and the answer should be higher. Perhaps ~70%. I think there is some small computational error somewhere which I haven't been able to find 
- looking back through my trigonometry a couple of times. 
+ I got roughly 41%, although my intuition suggests that this is probably wrong and the answer should be higher. Perhaps ~70%.<br> After checking a couple of individual runs however my algorithm seems to be working, there may be some small computational error somewhere which I haven't been able to find. I also ran through my trig a couple of times
+ and can't seem to find any logical errors.
  
  
  ## Process
