@@ -1,5 +1,9 @@
 #include <iostream>
 #include <cmath>
+#include <stdio.h>     
+#include <stdlib.h>    
+#include <time.h>    
+
 
 using namespace std;
 
@@ -13,15 +17,16 @@ class methods{
             double x_center = 0;
             double y_center = side_length * sqrt(3.0) / 4;
 
-            double y1 = 2.0 * sqrt(3.0) * a;   //from 30-60-90 triangle
-            double y2 = 2.0 * sqrt(3.0) * b;
-            double x1 = (a/2.0) - (b/2.0);
-            double x2 = (b/2.0) - (a/2.0);
+            double y1 = sqrt(3.0) * a / 2.0;   //from 30-60-90 triangle
+            double y2 =  sqrt(3.0) * b / 2.0;
+            double x1 = (side_length/2.0) - (a/2.0);
+            double x2 = -(b/2.0);
             double x3 = c - (side_length / 2.0); //bottom line of equilateral triangle
             double y3 = 0;
 
+
             double sum_triangles = herons(x1,y1,x2 ,y2,x_center, y_center) + herons(x2,y2,x3,y3,x_center, y_center) + herons(x1,y1,x3,y3,x_center, y_center);
-            if(abs(herons(x1,y1,x2,y2,x3,y3) - sum_triangles) < .1){
+            if(abs(herons(x1,y1,x2,y2,x3,y3) - sum_triangles) < 1){
                 return true;
             }
             return false;
@@ -48,11 +53,15 @@ class methods{
 
 
 int main(){
-    int NUM_RUNS = 100;
+    int NUM_RUNS = 10000;
     double side_length = 100;
-    int num_in, num_out = 0;
+    int num_in= 0;
+    int num_out = 0;
 
     methods methods;
+
+  
+    srand (time(NULL));
     for(int i = 0; i < NUM_RUNS; i++){
         double rand1 = (side_length * double(rand() % 1001))/1000; //random number between 0 and side_length
         double rand2 = (side_length * double(rand() % 1001))/1000; 
@@ -65,7 +74,26 @@ int main(){
             num_out++;
         }
 
-        cout << "NUM IN: " << num_in << " NUM OUT: " << num_out << endl;
+        cout << "Is it in: " << methods.is_intriangle(rand1,rand2,rand3, side_length) << ":    SIDE LENGHTS: " << rand1 << " " << rand2 << " " << rand3 << endl;
+        cout << "NUM IN " << num_in << " NUM OUT " << num_out  << endl;
     }
     return 0;
 }
+
+
+
+/*
+!TESTING
+            // cout << "X2 " << b << " x2 " << x3;
+            // cout << "y2 " << b << " y2 " << y3;
+            // cout << endl;
+
+
+
+        // cout << methods.herons(10.2, 2.3, 3.1231, 3.12, 3.4, 6.6);
+        // cout << methods.is_intriangle(45,45,45,100);
+        // cout << methods.herons(0,0,1,0,0,1);
+
+
+
+*/
