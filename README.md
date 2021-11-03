@@ -3,8 +3,8 @@
 ## The problem
 (Images 1-3 were provided by Professor Keogh in the question)
 
-Imagine you were to create an equilateral triangle and pick a point randomly on each edge. (1)
-What is the probability that the point in the center of the large triangle is within the sub-triangle created by the three random points. (2)
+Imagine you were to create an equilateral triangle and pick a point randomly on each edge. (image 1)
+What is the probability that the point in the center of the large triangle is within the sub-triangle created by the three random points. (image 2)
 
 1
  ![](tri2.png)
